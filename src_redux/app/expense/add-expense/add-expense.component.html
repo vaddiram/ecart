@@ -1,0 +1,60 @@
+<div class="container-fluid py-5">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <h2 class="display-5 text-center">Add Expense</h2>
+      <form autocomplete="off" (ngSubmit)="addExpense()" #expenseForm="ngForm">
+        <div class="form-group">
+          <label for="category">Select Category</label>
+          <select 
+            class="form-control" 
+            id="category"
+            [(ngModel)]="model.category"
+            name="category"
+            #category="ngModel">
+            <option *ngFor="let category of categories | async">{{category}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="itemName">Item name</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="itemName"
+            [(ngModel)]="model.itemName"
+            name="itemName"
+            #itemName="ngModel">
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="amount"
+            [(ngModel)]="model.amount"
+            name="amount"
+            #amount="ngModel">
+        </div>
+
+        <div class="form-group">
+          <label for="date">Expense Date</label>
+          <input 
+            type="date" 
+            class="form-control" 
+            id="date"
+            [(ngModel)]="model.date"
+            name="date"
+            #date="ngModel">
+        </div>
+
+        <button type="submit" class="btn btn-outline-secondary px-5">Add</button>
+      </form>
+
+      <small class="text-danger mt-3 text-center">{{errorMsg}}</small>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+  

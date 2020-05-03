@@ -1,0 +1,51 @@
+<section class="container-fluid p-5">
+    <!-- Form to update budget -->
+    <form (ngSubmit)="updateBudget()">
+      <div class="form-group row">
+        <label for="budget" class="col-sm-3 col-form-label">Total Budget</label>
+        <div class="col-sm-7">
+          <input 
+            type="text" 
+            class="form-control" 
+            id="budget" 
+            placeholder="2000000"
+            [(ngModel)]="budget"
+            name="budget">
+        </div>
+        <div class="col-sm-2">
+          <button type="submit" class="btn btn-outline-secondary">Update</button>
+        </div>
+      </div>
+    </form>
+
+    <form (ngSubmit)="updateCategories()">
+      <div class="form-group row mt-5">
+        <label for="categories" class="col-sm-3 col-form-label">Categories</label>
+        <div class="col-sm-7">
+          <input 
+            type="text" 
+            class="form-control" 
+            id="categories" 
+            placeholder="Category name"
+            [(ngModel)]="category" 
+            name="budget">
+        </div>
+        <div class="col-sm-2">
+          <button type="submit" class="btn btn-outline-secondary px-4">Add</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="row p-3 mt-5">
+      <div class="col-sm-6 border">
+        <table class="table table-borderless table-sm mb-0">
+          <tr *ngFor="let categoryName of categories | async">
+            <td>{{categoryName}}</td>
+            <td class="text-right"><i class="fa fa-trash" aria-hidden="true" (click)="deleteCategory(categoryName)"></i></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-sm-6"></div>
+      <!-- <div class="col-sm-4"></div> -->
+    </div>
+</section>

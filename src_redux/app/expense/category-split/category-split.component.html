@@ -1,0 +1,26 @@
+<section>
+  <div class="row" [hidden]="categoryNames.length > 5">
+    <div class="col-sm-12">
+      <canvas id="category-wise-expenses"></canvas>
+    </div>
+  </div>
+  <div class="row" *ngIf="categoryNames.length > 5">
+    <div class="col-sm-12">
+      <h4 class="text-center">Category Wise Split</h4>
+      <table class="table table-sm table-border">
+        <thead>
+          <tr>
+            <th scope="col">Category</th>
+            <th scope="col">Expenses</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categoryNames; let i = index">
+            <td>{{category}}</td>
+            <td>{{categoryWiseExpenses[i]}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

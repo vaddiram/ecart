@@ -1,0 +1,24 @@
+.nav {
+    width: 100%;
+}
+
+.nav ul {
+    list-style-type: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.nav ul li a {
+    display: block;
+    font-size: 18px;
+    padding: 15px;
+    cursor: pointer;
+    color: #222;
+    text-decoration: none;
+}
+
+.active {
+    font-weight: bold;
+    text-decoration: none;
+}
