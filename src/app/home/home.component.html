@@ -1,0 +1,27 @@
+  <!-- Page Content -->
+  <div class="container" id="home-page">
+
+    <div class="row">
+      <app-categorylist class="col-lg-3"></app-categorylist>
+      <!-- <div class="col-lg-3">
+
+        <h1 class="my-4">Shop Name</h1>
+        <div class="list-group">
+          <a href="#" class="list-group-item">Category 1</a>
+          <a href="#" class="list-group-item">Category 2</a>
+          <a href="#" class="list-group-item">Category 3</a>
+        </div>
+
+      </div> -->
+      <!-- /.col-lg-3 -->
+
+      <app-productlist class="col-lg-9"></app-productlist>
+
+    </div>
+    <div *ngFor="let emp of empList">
+      <h1>{{emp.name}}</h1>
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->

@@ -1,0 +1,64 @@
+<!-- main app container -->
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-8 offset-md-2">
+              <h3>Angular 7 Template-Driven Form Validation</h3>
+              <form name="form" (ngSubmit)="cf.form.valid && onSubmit()" #cf="ngForm" 
+              [mustMatch]="['password', 'confirmPassword']" novalidate>
+                  <div class="form-group">
+                      <label for="firstName">First Name</label>
+                      <input type="text" class="form-control" name="firstName" [(ngModel)]="cfmodel.firstName" 
+                      #firstName="ngModel" [ngClass]="{ 'is-invalid': cf.submitted && firstName.invalid }"
+                       required minlength="6" maxlength="8" />
+                      <div *ngIf="cf.submitted && firstName.invalid" class="invalid-feedback">
+                          <div *ngIf="firstName.errors.required">First Name is required</div>
+                          <div *ngIf="firstName.errors.minlength">First Name should be min of 6 chracters</div>
+                          <div *ngIf="firstName.errors.maxlength">First Name should be max of 8 chracters</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="lastName">Last Name</label>
+                      <input type="text" class="form-control" name="lastName" [(ngModel)]="cfmodel.lastName" 
+                      #lastName="ngModel" [ngClass]="{ 'is-invalid': cf.submitted && lastName.invalid }" required />
+                      <div *ngIf="cf.submitted && lastName.invalid" class="invalid-feedback">
+                          <div *ngIf="lastName.errors.required">Last Name is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="text" class="form-control" name="email" [(ngModel)]="cfmodel.email"
+                       #email="ngModel" [ngClass]="{ 'is-invalid': cf.submitted && email.invalid }" required email />
+                      <div *ngIf="cf.submitted && email.invalid" class="invalid-feedback">
+                          <div *ngIf="email.errors.required">Email is required</div>
+                          <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="password">Password</label>
+                      <input type="password" class="form-control" name="password" [(ngModel)]="cfmodel.password"
+                       #password="ngModel" [ngClass]="{ 'is-invalid': cf.submitted && password.invalid }" 
+                       required minlength="6" />
+                      <div *ngIf="cf.submitted && password.invalid" class="invalid-feedback">
+                          <div *ngIf="password.errors.required">Password is required</div>
+                          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="confirmPassword">Confirm Password</label>
+                      <input type="password" class="form-control" name="confirmPassword"
+                       [(ngModel)]="cfmodel.confirmPassword" #confirmPassword="ngModel"
+                        [ngClass]="{ 'is-invalid': cf.submitted && confirmPassword.invalid }" required />
+                      <div *ngIf="cf.submitted && confirmPassword.invalid" class="invalid-feedback">
+                          <div *ngIf="confirmPassword.errors.required">Confirm Password is required</div>
+                          <div *ngIf="confirmPassword.errors.mustMatch">Passwords must match</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <button class="btn btn-primary">Register</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
